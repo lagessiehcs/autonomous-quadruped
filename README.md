@@ -2,7 +2,7 @@
 
 
 1. Copy the src-folder to your repository and build it
-2. Download the Unity Environment: https://syncandshare.lrz.de/getlink/fiLvgiTXetubiN1i4PRjuR/
+2. Download the Unity Environment: https://www.dropbox.com/scl/fi/pqou4svk0j5vsj3f3ph6l/AutonomousQuadruped.zip?rlkey=983xyod376rsz9f1qewxzg79o&st=px518c1z&dl=0
 3. Unzip the Unity file and copy the files to .../devel/lib/simulation/
 4. Run a test:
   a.) roslaunch simulation simulation.launch
