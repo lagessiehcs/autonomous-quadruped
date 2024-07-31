@@ -36,11 +36,9 @@ This project uses [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) a
   
 You will see the quadruped in front of you and it is walking forward. The goal is to navigate the quadruped through the parcour. If you take a look to the source-code of the controller_node you will see how to control the quadruped with the inputs Phase, SkewPhase, Amplitude change, Amplitude back and Frequency (of the legs).
 
-## Packages
-### teleop_pkg
-* teleop_pkg contains the node **teleop_node**, which reads the user's keyboard input and decides the robot motion based that. The commands are then published to the topic /commands to move the robot
-* Run the node in a new terminal:
-  
+## Functionalities
+### Teleop
+Open another terminal and enter the following command for keyboard control:
   ```
   rosrun teleop_pkg teleop_node.py
   ```
