@@ -1,0 +1,6 @@
+<launch>
+
+<node pkg="teleop_pkg" name="teleop_publisher" type="teleop_publisher_node.py"/>
+<node pkg="teleop_pkg" name="teleop_subscriber" type="teleop_subscriber_node"/>
+
+</launch>
