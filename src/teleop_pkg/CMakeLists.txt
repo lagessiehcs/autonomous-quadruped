@@ -13,21 +13,14 @@ elseif(COMPILER_SUPPORTS_CXX0X)
 endif()
 
 find_package(catkin REQUIRED COMPONENTS 
-  roscpp 
   rospy 
-  std_msgs 
   mav_msgs
 )
 
 catkin_package(CATKIN_DEPENDS 
-  roscpp 
-  std_msgs 
+  rospy 
   mav_msgs
 )
 
 
 include_directories(${catkin_INCLUDE_DIRS})
-
-add_executable(teleop_subscriber_node src/teleop_subscriber_node.cpp)
-add_dependencies(teleop_subscriber_node ${catkin_EXPORTED_TARGETS})
-target_link_libraries(teleop_subscriber_node ${catkin_LIBRARIES})
