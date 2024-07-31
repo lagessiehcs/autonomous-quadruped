@@ -41,7 +41,7 @@ You will see the quadruped in front of you and it is walking forward. The goal i
 * teleop_pkg contains two nodes: **teleop_publisher_node** and **teleop_subscriber_node**
 * **teleop_publisher_node** reads the user's  keyboard input and publishes it to the topic /teleop
 * **teleop_subscriber_node** subscribes to the topic /teleop and perform motion decision based on the user's input. The commands are then published to the topic /commands to move the robot
-* The launch file teleop.launch launches both nodes with one single command
+* The launch file teleop.launch launches both nodes with one single command. </br>
   Open a new terminal:
   
   ```
