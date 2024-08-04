@@ -37,29 +37,42 @@ This project uses [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) a
 You will see the quadruped in front of you and it is walking forward. The goal is to navigate the quadruped through the parcour. If you take a look to the source-code of the controller_node you will see how to control the quadruped with the inputs Phase, SkewPhase, Amplitude change, Amplitude back and Frequency (of the legs).
 
 # Packages
+## simulation
+Run the unity simulation 
+### Launch
+Open a new terminal and enter the following command:
+   ````
+   roslaunch simulation simulation.launch
+   ````
+## controller_pkg
+Right now this package does nothing other than making the robot move straight forward
+### Launch
+Open a new terminal and enter the following command:
+   ````
+   rosrun controller_pkg controller_node
+   ````
 ## teleop_actuators_keyboard
 Keyboard control for the quadruped robot
 ### Launch
-Open another terminal and enter the following command:
-  ```
-  rosrun teleop_actuators_keyboard teleop_actuators_keyboard.py
-  ```
+Open a new terminal and enter the following command:
+   ```
+   rosrun teleop_actuators_keyboard teleop_actuators_keyboard.py
+   ```
 ### Usage
-````
-Reading from the keyboard and publishing to Actuators!
----------------------------
-Moving around:
-        w    
-   a    s    d
+   ````
+   Reading from the keyboard and publishing to Actuators!
+   ---------------------------
+   Moving around:
+           w    
+      a    s    d
+   
+   Special keys:
+   e - Obstacles passing mode
+   q - Slow obstacles passing mode
+   x - Stop
+   
+   CTRL-C to quit
+   ````
 
-Special keys:
-e - Obstacles passing mode
-q - Slow obstacles passing mode
-x - Stop
-
-CTRL-C to quit
-````
-
-
-## Source
+# Source
 The framework of this project and the Unity Environment were provided by [Prof. Dr. Markus Ryll](https://www.professoren.tum.de/ryll-markus) as part of the course [Introduction To ROS](https://www.moodle.tum.de/course/info.php?id=88252). The initial framework for this project to build upon can be found in the branch **framework**
