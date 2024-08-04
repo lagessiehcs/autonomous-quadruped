@@ -1,11 +1,11 @@
 # Autonomous Quadruped 
 The goal of this project is to control the robot to parkour through a track filled with obstacles.
 
-# Prerequisites
+## Prerequisites
 
 This project uses [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) and runs on [Ubuntu 20.04 (Focal)](https://releases.ubuntu.com/focal/)
 
-# Getting Started
+## Getting Started
 
 1. Copy the src-folder to your workspace and build it. </br>
    Inside your workspace directory:
@@ -61,5 +61,5 @@ CTRL-C to quit
 ````
 
 
-# Source
+## Source
 The framework of this project and the Unity Environment were provided by [Prof. Dr. Markus Ryll](https://www.professoren.tum.de/ryll-markus) as part of the course [Introduction To ROS](https://www.moodle.tum.de/course/info.php?id=88252). The initial framework for this project to build upon can be found in the branch **framework**
