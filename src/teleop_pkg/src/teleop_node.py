@@ -41,7 +41,7 @@ class TeleopControllerNode:
             quit() # handle ctrl+C        
         return ch
 
-    def control_loop(self, ):
+    def control_loop(self, _):
         msg = Actuators()
         key = self.getchar()
         if key == 'w':
