@@ -1,11 +1,11 @@
 # Autonomous Quadruped 
 The goal of this project is to control the robot to parkour through a track filled with obstacles.
 
-## Prerequisites
+# Prerequisites
 
 This project uses [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) and runs on [Ubuntu 20.04 (Focal)](https://releases.ubuntu.com/focal/)
 
-## Getting Started
+# Getting Started
 
 1. Copy the src-folder to your workspace and build it. </br>
    Inside your workspace directory:
@@ -36,12 +36,30 @@ This project uses [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) a
   
 You will see the quadruped in front of you and it is walking forward. The goal is to navigate the quadruped through the parcour. If you take a look to the source-code of the controller_node you will see how to control the quadruped with the inputs Phase, SkewPhase, Amplitude change, Amplitude back and Frequency (of the legs).
 
-## Functionalities
-### Teleop
-Open another terminal and enter the following command for keyboard control:
+# Packages
+## teleop_actuators_keyboard
+Keyboard control for the quadruped robot
+### Launch
+Open another terminal and enter the following command:
   ```
-  rosrun teleop_pkg teleop_node.py
+  rosrun teleop_actuators_keyboard teleop_actuators_keyboard.py
   ```
+### Usage
+````
+Reading from the keyboard and publishing to Actuators!
+---------------------------
+Moving around:
+        w    
+   a    s    d
 
-## Source
+Special keys:
+e - Obstacles passing mode
+q - Slow obstacles passing mode
+x - Stop
+
+CTRL-C to quit
+````
+
+
+# Source
 The framework of this project and the Unity Environment were provided by [Prof. Dr. Markus Ryll](https://www.professoren.tum.de/ryll-markus) as part of the course [Introduction To ROS](https://www.moodle.tum.de/course/info.php?id=88252). The initial framework for this project to build upon can be found in the branch **framework**
