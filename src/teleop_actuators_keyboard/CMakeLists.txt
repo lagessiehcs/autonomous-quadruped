@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(teleop_pkg)
+project(teleop_actuators_keyboard)
 
 find_package(catkin REQUIRED COMPONENTS 
   rospy 
@@ -13,6 +13,6 @@ catkin_package(CATKIN_DEPENDS
 
 include_directories(${catkin_INCLUDE_DIRS})
 
-catkin_install_python(PROGRAMS src/teleop_node.py
+catkin_install_python(PROGRAMS scripts/teleop_actuators_keyboard.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

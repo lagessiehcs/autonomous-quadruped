@@ -2,7 +2,12 @@
 
 import rospy
 from mav_msgs.msg import Actuators
+import sys
+from select import select
+
 import os
+
+
 
 class Parameters:
     def __init__(self, phase, skew, amp, ampback, freq):
@@ -13,6 +18,20 @@ class Parameters:
         self.Freq = freq
         
 class TeleopControllerNode:
+    INSTRUCTION = """
+Reading from the keyboard and publishing to Actuators!
+---------------------------
+Moving around:
+        w    
+    a   s   d
+
+Special keys:
+e - Obstacles passing mode
+q - Slow obstacles passing mode
+x - Stop
+
+CTRL-C to quit
+    """
     def __init__(self):
         rospy.init_node('teleop_controller_node', anonymous=True)
 
@@ -20,57 +39,71 @@ class TeleopControllerNode:
         self.parameters = Parameters(0, 0, 0, 0, 0)
         
         self.commands = rospy.Publisher('commands', Actuators, queue_size=1)
-        self.timer = rospy.Timer(rospy.Duration(1.0 / self.hz), self.control_loop)        
+        self.timer = rospy.Timer(rospy.Duration(1.0 / self.hz), self.control_loop)  
+        self.status = 0
+
+        print(TeleopControllerNode.INSTRUCTION)
         
-    def getchar(self):          
+    def getKey(self):          
         # Returns a single character from standard input
-        ch = ''
+        key = ''
         if os.name == 'nt': # how it works on windows
             import msvcrt
-            ch = msvcrt.getch()
+            key = msvcrt.getch()
         else:
             import tty, termios, sys
             fd = sys.stdin.fileno()
             old_settings = termios.tcgetattr(fd)
         try:
             tty.setraw(sys.stdin.fileno())
-            ch = sys.stdin.read(1)
+            key = sys.stdin.read(1)
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)                
-        if ord(ch) == 3: 
+        if ord(key) == 3: 
             quit() # handle ctrl+C        
-        return ch
+        return key
+
 
     def control_loop(self, _):
         msg = Actuators()
-        key = self.getchar()
+        key = self.getKey()
         if key == 'w':
             self.parameters = Parameters(0, 90, 0, 0, 12)
-            rospy.loginfo("Walking forward")
+            print("Walking forward")
+            self.status = (self.status + 1) % 15
 
         elif key == 's':
             self.parameters = Parameters(0, 90, 0, 0, 2)
-            rospy.loginfo("Walking backward")
+            print("Walking backward")
+            self.status = (self.status + 1) % 15
 
         elif key == 'a':
             self.parameters = Parameters(0, -45, 0, 0, 7)
-            rospy.loginfo("Turning left")
+            print("Turning left")
+            self.status = (self.status + 1) % 15
 
         elif key == 'd':
             self.parameters = Parameters(0, 45, 0, 0, 7)
-            rospy.loginfo("Turning right")
+            print("Turning right")
+            self.status = (self.status + 1) % 15
 
         elif key == 'e':
             self.parameters = Parameters(45, 0, 40, 20, 7)
-            rospy.loginfo("Overcoming obstacles")
+            print("Passing obstacles")
+            self.status = (self.status + 1) % 15
 
         elif key == 'q':
             self.parameters = Parameters(45, 0, 40, 20, 1)
-            rospy.loginfo("Slowly overcoming obstacles")
+            print("Slowly passing obstacles")
+            self.status = (self.status + 1) % 15
 
-        elif key == 'c':
+        elif key == 'x':
             self.parameters = Parameters(0, 0, 0, 0, 0)
-            rospy.loginfo("Stop")
+            print("Stop")
+            self.status = (self.status + 1) % 15
+        
+        if (self.status == 14):
+            print(TeleopControllerNode.INSTRUCTION)
         
         msg.angular_velocities = [0] * 5
 
@@ -83,7 +116,7 @@ class TeleopControllerNode:
         self.commands.publish(msg)
 
 if __name__ == '__main__':
-    try:
+    try:        
         TeleopControllerNode()
         rospy.spin()
     except rospy.ROSInterruptException:
