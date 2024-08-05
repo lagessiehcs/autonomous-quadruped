@@ -1,5 +1,18 @@
+## Task Description 
+The goal of the project is passing a parkour with your robot in minimal time, while not hitting any of the cones.
+The core parts, including but not limited are:
+* A Unity simulation environment. A base version will be provided to you.
+* A ROS-Simulation-Bridge providing ROS interfaces (topics, services). It will communicate with the simulation via TCP while at the same time providing relevant information to other ROS nodes. A base version will be provided to you. You are free to adjust the code.
+* A basic position controller leveraging gait walking.
+* A state machine for your robot.
+* A perception pipeline that converts the depth image, first to a point cloud and second to a voxel-grid representation of the environment.
+* A path planner that generates a path through the environment.
+* A trajectory planner that plans a trajectory based on the found path.
+* It is required that you at least once implement one of the following ROS elements by yourself:
+ROS service - document where you used a ROS service call
+* Implement an own message type - document which message you definened by yourself
+  
 ## Getting Started
-
 
 1. Copy the src-folder to your repository and build it
 2. Download the Unity Environment: https://syncandshare.lrz.de/getlink/fiLvgiTXetubiN1i4PRjuR/
