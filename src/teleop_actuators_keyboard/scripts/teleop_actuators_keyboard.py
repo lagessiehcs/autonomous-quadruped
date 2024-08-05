@@ -21,9 +21,9 @@ class TeleopControllerNode:
     INSTRUCTION = """
 Reading from the keyboard and publishing to Actuators!
 ---------------------------
-Moving around:
-        w    
-    a   s   d
+Moving with aswd:
+s/w - move backward/forward
+a/d - rotate left/right
 
 Special keys:
 e - Obstacles passing mode
