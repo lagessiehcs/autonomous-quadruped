@@ -63,26 +63,26 @@ You will see the quadruped in front of you and it is walking forward. The goal i
 # <a name="packages"></a> Packages
 ## simulation
 Run the unity simulation 
-### Launch
+#### Launch
 Open a new terminal and enter the following command:
    ````
    roslaunch simulation simulation.launch
    ````
 ## controller_pkg
 Right now this package does nothing other than making the robot move straight forward
-### Launch
+#### Launch
 Open a new terminal and enter the following command:
    ````
    rosrun controller_pkg controller_node
    ````
 ## teleop_actuators_keyboard
 Keyboard control for the quadruped robot
-### Launch
+#### Launch
 Open a new terminal and enter the following command:
    ```
    rosrun teleop_actuators_keyboard teleop_actuators_keyboard.py
    ```
-### Usage
+#### Usage
    ````
    Reading from the keyboard and publishing to Actuators!
    ---------------------------
