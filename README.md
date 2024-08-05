@@ -1,7 +1,7 @@
 # Autonomous Quadruped 
 The goal of the project is passing a parkour with your robot in minimal time, while not hitting any of the cones.
 
-# Table of contents 
+## Table of contents 
 * [Task Description](#task-description)
 * [Prerequisites](#prerequisites)
 * [Getting Started](#getting-started)
@@ -12,7 +12,7 @@ The goal of the project is passing a parkour with your robot in minimal time, wh
 * [Source](#source)
 
 
-# Task Description 
+## Task Description 
 The goal of the project is passing a parkour with your robot in minimal time, while not hitting any of the cones.
 The core parts, including but not limited are:
 * A Unity simulation environment. A base version will be provided to you.
@@ -27,10 +27,10 @@ ROS service - document where you used a ROS service call
 * Implement an own message type - document which message you definened by yourself
 
 
-# Prerequisites
+## Prerequisites
 This project uses [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) and runs on [Ubuntu 20.04 (Focal)](https://releases.ubuntu.com/focal/)
 
-# Getting Started
+## Getting Started
 1. Copy the src-folder to your workspace and build it. </br>
    Inside your workspace directory:
    ````
@@ -60,29 +60,29 @@ This project uses [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) a
   
 You will see the quadruped in front of you and it is walking forward. The goal is to navigate the quadruped through the parkour. If you take a look to the source-code of the controller_node you will see how to control the quadruped with the inputs Phase, SkewPhase, Amplitude change, Amplitude back and Frequency (of the legs).
 
-# <a name="packages"></a> Packages
-## simulation
-Run the unity simulation 
-#### Launch
+## Packages
+### simulation
+Run the unity simulation
+* **Launch**  
 Open a new terminal and enter the following command:
    ````
    roslaunch simulation simulation.launch
    ````
-## controller_pkg
+### controller_pkg
 Right now this package does nothing other than making the robot move straight forward
-#### Launch
+* **Launch**  
 Open a new terminal and enter the following command:
    ````
    rosrun controller_pkg controller_node
    ````
-## teleop_actuators_keyboard
+### teleop_actuators_keyboard
 Keyboard control for the quadruped robot
-#### Launch
-Open a new terminal and enter the following command:
+* **Launch**  
+  Open a new terminal and enter the following command:
    ```
    rosrun teleop_actuators_keyboard teleop_actuators_keyboard.py
    ```
-#### Usage
+* **Usage**
    ````
    Reading from the keyboard and publishing to Actuators!
    ---------------------------
@@ -98,5 +98,5 @@ Open a new terminal and enter the following command:
    CTRL-C to quit
    ````
 
-# Source
+## Source
 The framework of this project and the Unity Environment were provided by [Prof. Dr. Markus Ryll](https://www.professoren.tum.de/ryll-markus) as part of the course [Introduction To ROS](https://www.moodle.tum.de/course/info.php?id=88252). The initial framework for this project to build upon can be found in the branch **framework**
