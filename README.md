@@ -52,7 +52,7 @@ Open a new terminal and enter the following command:
    roslaunch simulation simulation.launch
    ````
 ### controller_pkg
-Right now this package does nothing other than making the robot move straight forward
+Right now this package does nothing other than makes the robot move straight forward
 * **Launch**  
 Open a new terminal and enter the following command:
    ````
