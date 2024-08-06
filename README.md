@@ -35,8 +35,7 @@ Frequency = 7
 # Tips
 
 Here are a couple of hints regarding the implementation. The hints are just suggestions; you are free so solve the task differently:
-- Generating point cloud from depth image: use depth_image_proc in http://wiki.ros.org/depth_
-image_proc.
+- Generating point cloud from depth image: use depth_image_proc in http://wiki.ros.org/depth_image_proc.
 - Generating occupancy Grid: use Octomap in http://wiki.ros.org/octomap.
 - Please ping us in case you have any questions or if you get stuck in some subtasks.
 - Use a global map as your voxel grid representation. Use a smart resolution for your voxel grid representation (e.g. 1m).
