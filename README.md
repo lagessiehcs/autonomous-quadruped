@@ -13,6 +13,14 @@ The goal of the project is passing a parkour with your robot in minimal time, wh
 ## Prerequisites
 This project uses [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) and runs on [Ubuntu 20.04 (Focal)](https://releases.ubuntu.com/focal/)
 
+## Dependencies
+The following packages need to be installed:
+1. depth_image_proc
+
+````
+sudo apt-get install ros-noetic-depth-image-proc
+````
+
 ## Getting Started
 1. Copy the src-folder to your workspace and build it. </br>
    Inside your workspace directory:
