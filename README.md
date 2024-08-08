@@ -20,6 +20,11 @@ The following packages need to be installed:
 ````
 sudo apt-get install ros-noetic-depth-image-proc
 ````
+2. octomap_server
+
+````
+sudo apt-get install ros-noetic-octomap-server
+````
 
 ## Getting Started
 1. Copy the src-folder to your workspace and build it. </br>
