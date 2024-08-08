@@ -15,16 +15,16 @@ This project uses [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) a
 
 ## Dependencies
 The following packages need to be installed:
-1. depth_image_proc
+* **depth_image_proc**
 
-````
-sudo apt-get install ros-noetic-depth-image-proc
-````
-2. octomap_server
-
-````
-sudo apt-get install ros-noetic-octomap-server
-````
+  ````
+  sudo apt-get install ros-noetic-depth-image-proc
+  ````
+* **octomap_server**
+  
+  ````
+  sudo apt-get install ros-noetic-octomap-server
+  ````
 
 ## Getting Started
 1. Copy the src-folder to your workspace and build it. </br>
