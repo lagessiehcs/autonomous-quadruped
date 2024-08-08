@@ -1,0 +1,17 @@
+<launch>
+  <node name="octomap_server" pkg="octomap_server" type="octomap_server_node" output="screen">
+    <!-- Parameters -->
+    <param name="resolution" value="0.05"/> 
+    <param name="frame_id" value="map"/>    
+    <param name="sensor_model/max_range" value="5.0"/> 
+    <!-- base_frame_id: only neccessary when filter_ground=true -->
+    <param name="base_frame_id" type="string" value="RoboDog/base_link/SensorHolder/Sensors/DepthCamera"/>
+    <param name = "sensor_model/max_range" value = "5.0" />
+    <param name="pointcloud_min_z " value="0.1" />
+    <param name="occupancy_min_z" value="0.1" />
+
+
+    <!-- Set the topics -->
+    <remap from="cloud_in" to="/realsense/depth/points"/>
+  </node>
+</launch>
