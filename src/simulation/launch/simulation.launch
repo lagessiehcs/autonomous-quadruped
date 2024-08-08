@@ -52,5 +52,8 @@
   <node pkg="tf2_ros" type="static_transform_publisher"
         name="true_body_to_right_cam"      args="0 0 0 0 0 0 /true_body RoboDog/base_link/SensorHolder/Sensors/RGBCameraRight" />
 
+  <node pkg="tf2_ros" type="static_transform_publisher"
+        name="depth_cam_to_right_cam"      args="0 0 0 0 0 0 RoboDog/base_link/SensorHolder/Sensors/DepthCamera RoboDog/base_link/SensorHolder/Sensors/RGBCameraRight" />
+
   
 </launch>
