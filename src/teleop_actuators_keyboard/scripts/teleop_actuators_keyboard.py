@@ -2,12 +2,8 @@
 
 import rospy
 from mav_msgs.msg import Actuators
-import sys
-from select import select
-
+from enum import Enum, auto
 import os
-
-
 
 class Parameters:
     def __init__(self, phase, skew, amp, ampback, freq):
@@ -16,7 +12,33 @@ class Parameters:
         self.Amp = amp
         self.Ampback = ampback
         self.Freq = freq
-        
+
+class Motion(Enum):
+    FOREWARD = auto()
+    BACKWARD = auto()
+    LEFT = auto()
+    RIGHT = auto()
+    JUMP = auto()
+    SLOW_JUMP = auto()
+    STOP = auto()
+
+def getParameters(motion):
+    if motion == Motion.FOREWARD:
+        return Parameters(0, 90, 0, 0, 12);    
+    elif motion == Motion.BACKWARD:
+        return Parameters(0, 90, 0, 0, 3);    
+    elif motion == Motion.LEFT:
+        return Parameters(0, -45, 0, 0, 7); 
+    elif motion == Motion.RIGHT:
+        return Parameters(0, 45, 0, 0, 7); 
+    elif motion == Motion.JUMP:
+        return Parameters(45, 0, 40, 20, 7); 
+    elif motion == Motion.SLOW_JUMP:
+        return Parameters(45, 0, 40, 20, 1); 
+    elif motion == Motion.STOP:
+        return Parameters(0,0,0,0,0); 
+
+
 class TeleopControllerNode:
     INSTRUCTION = """
 Reading from the keyboard and publishing to Actuators!
@@ -40,6 +62,12 @@ CTRL-C to quit
         
         self.commands = rospy.Publisher('commands', Actuators, queue_size=1)
         self.timer = rospy.Timer(rospy.Duration(1.0 / self.hz), self.control_loop)  
+
+        # Parameters
+        parameters = Parameters(0,0,0,0,0)
+        # Motions
+        motion = Motion.STOP
+        
         self.status = 0
 
         print(TeleopControllerNode.INSTRUCTION)
@@ -67,44 +95,44 @@ CTRL-C to quit
     def control_loop(self, _):
         msg = Actuators()
         key = self.getKey()
+        allowed_keys = {'w', 's', 'a', 'd', 'e', 'q', 'x'}
+
         if key == 'w':
-            self.parameters = Parameters(0, 90, 0, 0, 12)
+            self.motion = Motion.FOREWARD
             print("Walking forward")
-            self.status = (self.status + 1) % 15
 
         elif key == 's':
-            self.parameters = Parameters(0, 90, 0, 0, 2)
+            self.motion = Motion.BACKWARD
             print("Walking backward")
-            self.status = (self.status + 1) % 15
 
         elif key == 'a':
-            self.parameters = Parameters(0, -45, 0, 0, 7)
+            self.motion = Motion.LEFT
             print("Turning left")
-            self.status = (self.status + 1) % 15
 
         elif key == 'd':
-            self.parameters = Parameters(0, 45, 0, 0, 7)
+            self.motion = Motion.RIGHT
             print("Turning right")
-            self.status = (self.status + 1) % 15
 
         elif key == 'e':
-            self.parameters = Parameters(45, 0, 40, 20, 7)
+            self.motion = Motion.JUMP
             print("Passing obstacles")
-            self.status = (self.status + 1) % 15
 
         elif key == 'q':
-            self.parameters = Parameters(45, 0, 40, 20, 1)
+            self.motion = Motion.SLOW_JUMP
             print("Slowly passing obstacles")
-            self.status = (self.status + 1) % 15
 
         elif key == 'x':
-            self.parameters = Parameters(0, 0, 0, 0, 0)
+            self.motion = Motion.STOP
             print("Stop")
+
+        if key in allowed_keys:
             self.status = (self.status + 1) % 15
         
         if (self.status == 14):
             print(TeleopControllerNode.INSTRUCTION)
         
+        self.parameters = getParameters(self.motion)
+
         msg.angular_velocities = [0] * 5
 
         msg.angular_velocities[0] = self.parameters.Phase  # Phase between front and back legs (in degree)
