@@ -6,6 +6,8 @@ The goal of the project is passing a parkour with your robot in minimal time, wh
 * [Getting Started](#getting-started)
 * [Packages](#packages)
    * [simulation](#simulation)
+   * [perception](#perception)
+   * [navigation](#navigation)
    * [controller](#controller)
    * [quadruped_rviz](#quadruped_rviz)
    * [teleop_actuators_keyboard](#teleop_actuators_keyboard)
@@ -59,6 +61,14 @@ You will see the quadruped in front of you and it is walking forward. The goal i
 
 ## Packages
 
+### autonomous_quadruped
+This package launches the neccessary packages for the autonomous parkour. The neccessary packages are: [simulation](#simulation), [perception](#perception), [navigation](#navigation), [controller](#controller), [quadruped_rviz](#quadruped_rviz).
+* **Launch**  
+   Open a new terminal and enter the following command:
+   ````
+   roslaunch autonomous_quadruped autonomous_quadruped.launch
+   ````
+
 ### simulation
 Run the unity simulation
 * **Launch**  
@@ -73,6 +83,14 @@ Generate point clouds and use them for occupancy grid mapping
    Open a new terminal and enter the following command:
    ````
    roslaunch perception perception.launch
+   ````
+
+### navigation
+Generate cost maps and based on that publish desired velocity values
+* **Launch**  
+   Open a new terminal and enter the following command:
+   ````
+   roslaunch navigation move_base.launch
    ````
 
 ### controller
