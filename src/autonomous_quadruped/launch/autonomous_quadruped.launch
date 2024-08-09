@@ -1,0 +1,8 @@
+<launch>
+  <include file="$(find simulation)/launch/simulation.launch" />
+  <include file="$(find perception)/launch/perception.launch" />
+  <include file="$(find navigation)/launch/move_base.launch" />
+  <node name="controller_node" pkg="controller" type="controller_node"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find quadruped_rviz)/rviz/path_planning.rviz" />
+
+</launch>
