@@ -42,23 +42,12 @@ The following packages need to be installed:
    ````
    sudo chmod +x RoboDog_Build.x86_64
    ````
-5. ‼️**IMPORTANT**‼️: Every time a new terminal is opened, remember to source first! Inside your workspace directory:
+5. ‼️**IMPORTANT**‼️: After every build, the terminal will need to be sourced before any ros command can be used! 
+Inside your workspace directory:
    
     ````
     source devel/setup.bash
     ````
-6. To use any of the packages, the simulation environment has to be launched first!
-   
-    ````
-    roslaunch simulation simulation.launch
-    ````
-7. Run a test (in a new terminal)
-   
-    ````
-    rosrun controller_pkg controller_node
-    ````
-  
-You will see the quadruped in front of you and it is walking forward. The goal is to navigate the quadruped through the parkour. If you take a look to the source-code of the controller_node you will see how to control the quadruped with the inputs Phase, SkewPhase, Amplitude change, Amplitude back and Frequency (of the legs).
 
 ## Packages
 
