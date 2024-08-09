@@ -5,6 +5,7 @@ The goal of the project is passing a parkour with your robot in minimal time, wh
 * [Prerequisites](#prerequisites)
 * [Getting Started](#getting-started)
 * [Packages](#packages)
+   * [autonomous_quadruped](#autonomous_quadruped)
    * [simulation](#simulation)
    * [perception](#perception)
    * [navigation](#navigation)
