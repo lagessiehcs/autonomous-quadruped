@@ -65,6 +65,9 @@ Parameters getParameters(Motion motion) {
 
     case Motion::STOP:
       return Parameters(0, 0, 0, 0, 0);  
+    
+    default:
+      return Parameters(0, 0, 0, 0, 0); 
   }
 }
 
@@ -125,7 +128,6 @@ public:
 
 
   void controlLoop(const ros::TimerEvent& t){
-    
 
     mav_msgs::Actuators msg;
 
