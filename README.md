@@ -97,7 +97,7 @@ Keyboard control for the quadruped robot
 
 ### quadruped_rviz
 Store the configuration file for rviz simulation.
-* **Launch**
+* **Launch**  
    Open a new terminal and enter the following command:
    ```
    rosrun rviz rviz -d `rospack find quadruped_rviz`/rviz/path_planning.rviz
