@@ -82,6 +82,15 @@ Listen to the topic /cmd_vel and publish to the topic /commands the according pa
    ````
    rosrun controller controller_node
    ````
+
+### quadruped_rviz
+Store the configuration file for rviz simulation.
+* **Launch**  
+   Open a new terminal and enter the following command:
+   ```
+   rosrun rviz rviz -d `rospack find quadruped_rviz`/rviz/path_planning.rviz
+   ```
+   
 ### teleop_actuators_keyboard
 Keyboard control for the quadruped robot
 * **Launch**  
@@ -104,14 +113,6 @@ Keyboard control for the quadruped robot
    
    CTRL-C to quit
    ````
-
-### quadruped_rviz
-Store the configuration file for rviz simulation.
-* **Launch**  
-   Open a new terminal and enter the following command:
-   ```
-   rosrun rviz rviz -d `rospack find quadruped_rviz`/rviz/path_planning.rviz
-   ```
 
 ## Source
 The framework of this project and the Unity Environment were provided by [Prof. Dr. Markus Ryll](https://www.professoren.tum.de/ryll-markus) as part of the course [Introduction To ROS](https://www.moodle.tum.de/course/info.php?id=88252). The initial framework for this project to build upon can be found in the branch [framework](https://github.com/lagessiehcs/autonomous-quadruped/tree/framework)
