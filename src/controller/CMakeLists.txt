@@ -14,24 +14,14 @@ endif()
 
 find_package(catkin REQUIRED COMPONENTS 
   roscpp 
-  rospy 
-  std_msgs 
   geometry_msgs 
   mav_msgs
-  eigen_conversions
-  tf_conversions
 )
 
 catkin_package(CATKIN_DEPENDS 
   roscpp 
-  std_msgs 
   mav_msgs 
-  tf
-  eigen_conversions
-  tf_conversions
 )
-
-find_package(Eigen3)
 
 include_directories(${catkin_INCLUDE_DIRS})
 add_executable(controller_node src/controller_node.cpp)

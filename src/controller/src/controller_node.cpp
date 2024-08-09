@@ -1,25 +1,6 @@
 #include <ros/ros.h>
-
-#include <ros/console.h>
-
-#include <tf/transform_datatypes.h>
-#include <tf_conversions/tf_eigen.h>
-#include <eigen_conversions/eigen_msg.h>
 #include <mav_msgs/Actuators.h>
 #include <nav_msgs/Odometry.h>
-#include <trajectory_msgs/MultiDOFJointTrajectoryPoint.h>
-#include <math.h>
-#include <std_msgs/Float64.h>
-
-#define PI M_PI
-
-
-#include <eigen3/Eigen/Dense>
-
-// If you choose to use Eigen, tf provides useful functions to convert tf 
-// messages to eigen types and vice versa, have a look to the documentation:
-// http://docs.ros.org/melodic/api/eigen_conversions/html/namespacetf.html
-#include <eigen_conversions/eigen_msg.h>
 
 struct Parameters
 { 
