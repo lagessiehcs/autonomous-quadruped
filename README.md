@@ -67,7 +67,7 @@ Run the unity simulation
    roslaunch simulation simulation.launch
    ````
 
-### Perception
+### perception
 Generate point clouds and use them for occupancy grid mapping
 * **Launch**  
    Open a new terminal and enter the following command:
