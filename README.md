@@ -66,12 +66,21 @@ Run the unity simulation
    ````
    roslaunch simulation simulation.launch
    ````
-### controller_pkg
-Right now this package does nothing other than makes the robot move straight forward
+
+### Perception
+Generate point clouds and use them for occupancy grid mapping
 * **Launch**  
    Open a new terminal and enter the following command:
    ````
-   rosrun controller_pkg controller_node
+   roslaunch perception perception.launch
+   ````
+
+### controller
+Listen to the topic /cmd_vel and publish to the topic /commands the according parameters
+* **Launch**  
+   Open a new terminal and enter the following command:
+   ````
+   rosrun controller controller_node
    ````
 ### teleop_actuators_keyboard
 Keyboard control for the quadruped robot
