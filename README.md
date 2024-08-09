@@ -7,8 +7,8 @@ The goal of the project is passing a parkour with your robot in minimal time, wh
 * [Packages](#packages)
    * [simulation](#simulation)
    * [controller_pkg](#controller_pkg)
-   * [teleop_actuators_keyboard](#teleop_actuators_keyboard)
    * [quadruped_rviz](#quadruped_rviz)
+   * [teleop_actuators_keyboard](#teleop_actuators_keyboard)
 * [Source](#source)
 
 ## Prerequisites
@@ -90,7 +90,7 @@ Store the configuration file for rviz simulation.
    ```
    rosrun rviz rviz -d `rospack find quadruped_rviz`/rviz/path_planning.rviz
    ```
-   
+
 ### teleop_actuators_keyboard
 Keyboard control for the quadruped robot
 * **Launch**  
