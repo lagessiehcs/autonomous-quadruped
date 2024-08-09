@@ -8,6 +8,7 @@ The goal of the project is passing a parkour with your robot in minimal time, wh
    * [simulation](#simulation)
    * [controller_pkg](#controller_pkg)
    * [teleop_actuators_keyboard](#teleop_actuators_keyboard)
+   * [quadruped_rviz](#quadruped_rviz)
 * [Source](#source)
 
 ## Prerequisites
