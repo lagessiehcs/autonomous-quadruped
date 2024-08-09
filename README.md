@@ -42,7 +42,7 @@ The following packages need to be installed:
    ````
    sudo chmod +x RoboDog_Build.x86_64
    ````
-5. ‼️**IMPORTANT**‼️: After every build, the terminal will need to be sourced before any ros command can be used! 
+5. ‼️**IMPORTANT**‼️: After the project is built, source the terminal first before any further ros command! 
 Inside your workspace directory:
    
     ````
