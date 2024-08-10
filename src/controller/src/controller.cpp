@@ -1,6 +1,6 @@
 #include <ros/ros.h>
 #include <mav_msgs/Actuators.h>
-#include <nav_msgs/Odometry.h>
+#include <geometry_msgs/Twist.h>
 
 struct Parameters
 { 
@@ -24,33 +24,7 @@ enum class Motion {
   STOP
 };
 
-Parameters getParameters(Motion motion) {
-  switch (motion) {
-    case Motion::FOREWARD:
-      return Parameters(0, 90, 0, 0, 12);    
-
-    case Motion::BACKWARD:
-      return Parameters(0, 90, 0, 0, 3);
-
-    case Motion::LEFT:
-      return Parameters(0, -45, 0, 0, 7);
-
-    case Motion::RIGHT:
-      return Parameters(0, 45, 0, 0, 7);
-
-    case Motion::JUMP:
-      return Parameters(45, 0, 40, 20, 7);
-
-    case Motion::SLOW_JUMP:
-      return Parameters(45, 0, 40, 20, 1);
-
-    case Motion::STOP:
-      return Parameters(0, 0, 0, 0, 0);  
-    
-    default:
-      return Parameters(0, 0, 0, 0, 0); 
-  }
-}
+Parameters getParameters(Motion motion);
 
 class controllerNode{
   ros::NodeHandle nh;
@@ -71,7 +45,6 @@ public:
   controllerNode():hz(1000.0){
       commands = nh.advertise<mav_msgs::Actuators>("commands", 1);
       velocity = nh.subscribe("cmd_vel",1000, &controllerNode::commandCallback, this); 
-      commands = nh.advertise<mav_msgs::Actuators>("commands", 1);
       timer = nh.createTimer(ros::Rate(hz), &controllerNode::controlLoop, this);
   }
 
@@ -106,8 +79,6 @@ public:
     parameters = getParameters(this->motion);
   }
 
-
-
   void controlLoop(const ros::TimerEvent& t){
 
     mav_msgs::Actuators msg;
@@ -129,4 +100,32 @@ int main(int argc, char** argv){
   ROS_INFO_NAMED("controller", "Controller started!");
   controllerNode n;
   ros::spin();
+}
+
+Parameters getParameters(Motion motion) {
+  switch (motion) {
+    case Motion::FOREWARD:
+      return Parameters(0, 90, 0, 0, 12);    
+
+    case Motion::BACKWARD:
+      return Parameters(0, 90, 0, 0, 3);
+
+    case Motion::LEFT:
+      return Parameters(0, -45, 0, 0, 7);
+
+    case Motion::RIGHT:
+      return Parameters(0, 45, 0, 0, 7);
+
+    case Motion::JUMP:
+      return Parameters(45, 0, 40, 20, 7);
+
+    case Motion::SLOW_JUMP:
+      return Parameters(45, 0, 40, 20, 1);
+
+    case Motion::STOP:
+      return Parameters(0, 0, 0, 0, 0);  
+    
+    default:
+      return Parameters(0, 0, 0, 0, 0); 
+  }
 }
