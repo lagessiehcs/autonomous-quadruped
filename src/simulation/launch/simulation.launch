@@ -41,6 +41,9 @@
   <node name="w_to_unity" pkg="simulation" type="w_to_unity"/>
 
   <node pkg="tf2_ros" type="static_transform_publisher"
+        name="sim_true_body"      args="0 0 0 0 0 0 /TrueState /true_body" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher"
         name="true_body_to_depth_cam"      args="0 0 0 0 0 -1.744 /true_body RoboDog/base_link/SensorHolder/Sensors/DepthCamera" />
 
   <node pkg="tf2_ros" type="static_transform_publisher"
@@ -48,5 +51,6 @@
 
   <node pkg="tf2_ros" type="static_transform_publisher"
         name="true_body_to_right_cam"      args="0 0 0 0 0 0 /true_body RoboDog/base_link/SensorHolder/Sensors/RGBCameraRight" />
-  
+ 
+
 </launch>
