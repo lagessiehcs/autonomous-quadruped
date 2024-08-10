@@ -90,14 +90,14 @@ Visualization Manager:
       Radius: 0.029999999329447746
       Shaft Diameter: 0.10000000149011612
       Shaft Length: 0.10000000149011612
-      Topic: ""
+      Topic: /move_base/NavfnROS/plan
       Unreliable: false
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: map
+    Fixed Frame: world
     Frame Rate: 30
   Name: root
   Tools:
@@ -157,5 +157,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 303
-  Y: 14
+  X: -9
+  Y: -32
