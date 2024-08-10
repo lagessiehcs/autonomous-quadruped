@@ -7,4 +7,6 @@ inflation_radius: 0.55
 observation_sources: point_cloud_sensor
 
 sensor_frame: &depth_camera "RoboDog/base_link/SensorHolder/Sensors/DepthCamera"
-point_cloud_sensor: {sensor_frame: *depth_camera, data_type: PointCloud, topic: /realsense/depth/points, marking: true, clearing: true}
+point_cloud_sensor: {sensor_frame: *depth_camera, data_type: PointCloud2, topic: /realsense/depth/points, marking: true, clearing: true}
+
+static_layer: {map_topic: /projected_map, track_unknown_space: true}
