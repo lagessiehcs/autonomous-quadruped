@@ -24,7 +24,7 @@ catkin_package(CATKIN_DEPENDS
 )
 
 include_directories(${catkin_INCLUDE_DIRS})
-add_executable(controller_node src/controller_node.cpp)
-add_dependencies(controller_node ${catkin_EXPORTED_TARGETS})
+add_executable(controller src/controller.cpp)
+add_dependencies(controller ${catkin_EXPORTED_TARGETS})
 
-target_link_libraries(controller_node ${catkin_LIBRARIES})
+target_link_libraries(controller ${catkin_LIBRARIES})
