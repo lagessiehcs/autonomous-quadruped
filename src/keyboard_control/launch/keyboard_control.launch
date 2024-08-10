@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find simulation)/launch/simulation.launch" />
+  <include file="$(find perception)/launch/perception.launch" />
+  <node name="teleop_actuators_keyboard" pkg="teleop_actuators_keyboard" type="teleop_actuators_keyboard.py"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find quadruped_rviz)/rviz/path_planning.rviz" />
+</launch>
