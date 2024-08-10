@@ -97,7 +97,7 @@ Listen to the topic /cmd_vel and publish to the topic /commands the according pa
 * **Launch**  
    Open a new terminal and enter the following command:
    ````
-   rosrun controller controller_node
+   rosrun controller controller
    ````
 
 ### quadruped_rviz
