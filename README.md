@@ -6,6 +6,7 @@ The goal of the project is passing a parkour with your robot in minimal time, wh
 * [Getting Started](#getting-started)
 * [Packages](#packages)
    * [autonomous_quadruped](#autonomous_quadruped)
+   * [keyboard_control](#keyboard_control)
    * [simulation](#simulation)
    * [perception](#perception)
    * [navigation](#navigation)
@@ -52,11 +53,19 @@ Inside your workspace directory:
 ## Packages
 
 ### autonomous_quadruped
-This package launches the neccessary packages for the autonomous parkour. The neccessary packages are: [simulation](#simulation), [perception](#perception), [navigation](#navigation), [controller](#controller), [quadruped_rviz](#quadruped_rviz).
+This package launches the neccessary packages for the autonomous parkour. The neccessary packages are: [simulation](#simulation), [perception](#perception), [navigation](#navigation), [controller](#controller), and [quadruped_rviz](#quadruped_rviz).
 * **Launch**  
    Open a new terminal and enter the following command:
    ````
    roslaunch autonomous_quadruped autonomous_quadruped.launch
+   ````
+
+### keyboard_control
+This package launches the neccessary packages for the keyboard control of the robot. The neccessary packages are: [simulation](#simulation), [perception](#perception), [teleop_actuators_keyboard](#teleop_actuators_keyboard), and [quadruped_rviz](#quadruped_rviz).
+* **Launch**  
+   Open a new terminal and enter the following command:
+   ````
+   roslaunch keyboard_control keyboard_control.launch
    ````
 
 ### simulation
