@@ -1,7 +1,7 @@
 local_costmap:
   global_frame: world
-  robot_base_frame: true_body
-  update_frequency: 5.0
+  robot_base_frame: base_link
+  update_frequency: 50.0
   publish_frequency: 2.0
   static_map: false
   rolling_window: true
