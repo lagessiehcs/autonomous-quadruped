@@ -55,12 +55,12 @@ public:
     double linear_angular_threshold = 0.3;
 
     if (angular_velocity > linear_angular_threshold) {
-      this->motion = Motion::LEFT;
-      std::cout << "Rotating left";
-
-    } else if (angular_velocity < -linear_angular_threshold) {
       this->motion = Motion::RIGHT;
       std::cout << "Rotating right";
+
+    } else if (angular_velocity < -linear_angular_threshold) {
+      this->motion = Motion::LEFT;
+      std::cout << "Rotating left";
 
     } else if (linear_velocity > linear_velocity_threshold) {
       this->motion = Motion::FOREWARD;
