@@ -52,13 +52,13 @@ public:
     double linear_velocity = msg->linear.x;
     double angular_velocity = msg->angular.z;
     double linear_velocity_threshold = 0.1;
-    double linear_angular_threshold = 0.3;
+    double angular_velocity_threshold = 0.1;
 
-    if (angular_velocity > linear_angular_threshold) {
+    if (angular_velocity > angular_velocity_threshold) {
       this->motion = Motion::RIGHT;
       std::cout << "Rotating right";
 
-    } else if (angular_velocity < -linear_angular_threshold) {
+    } else if (angular_velocity < -angular_velocity_threshold) {
       this->motion = Motion::LEFT;
       std::cout << "Rotating left";
 
@@ -69,7 +69,6 @@ public:
     } else if (linear_velocity < -linear_velocity_threshold) {
       this->motion = Motion::BACKWARD;
       std::cout << "Moving backward";
-
 
     } else {
       this->motion = Motion::STOP;
