@@ -1,0 +1,4 @@
+NavfnROS:
+  default_tolerance: 0.5 
+  use_grid_path: true
+  orientation_mode: Forward
