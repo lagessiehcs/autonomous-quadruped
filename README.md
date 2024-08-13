@@ -3,16 +3,20 @@ The goal of the project is passing a parkour with your robot in minimal time, wh
 
 ## Table of contents 
 * [Prerequisites](#prerequisites)
+* [Dependencies](#dependencies)
+  * [depth_image_proc](#depth_image_proc)
+  * [octomap_server](#octomap_server)
+  * [depthimage_to_laserscan](#depthimage_to_laserscan)
 * [Getting Started](#getting-started)
 * [Packages](#packages)
-   * [autonomous_quadruped](#autonomous_quadruped)
-   * [keyboard_control](#keyboard_control)
-   * [simulation](#simulation)
-   * [perception](#perception)
-   * [navigation](#navigation)
-   * [controller](#controller)
-   * [quadruped_rviz](#quadruped_rviz)
-   * [teleop_actuators_keyboard](#teleop_actuators_keyboard)
+  * [autonomous_quadruped](#autonomous_quadruped)
+  * [keyboard_control](#keyboard_control)
+  * [simulation](#simulation)
+  * [perception](#perception)
+  * [navigation](#navigation)
+  * [controller](#controller)
+  * [quadruped_rviz](#quadruped_rviz)
+  * [teleop_actuators_keyboard](#teleop_actuators_keyboard)
 * [Source](#source)
 
 ## Prerequisites
@@ -20,15 +24,18 @@ This project uses [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) a
 
 ## Dependencies
 The following packages need to be installed:
-* **depth_image_proc**
+### [_depth_image_proc_](http://wiki.ros.org/depth_image_proc)
 
   ````
   sudo apt-get install ros-noetic-depth-image-proc
   ````
-* **octomap_server**
-  
+### [_octomap_server_](http://wiki.ros.org/octomap_server)
   ````
   sudo apt-get install ros-noetic-octomap-server
+  ````
+### [_depthimage_to_laserscan_](http://wiki.ros.org/depthimage_to_laserscan)
+  ````
+  sudo apt-get install ros-noetic-depthimage-to-laserscan
   ````
 
 ## Getting Started
@@ -51,8 +58,7 @@ Inside your workspace directory:
     ````
 
 ## Packages
-
-### autonomous_quadruped
+### _autonomous_quadruped_
 This package launches the neccessary packages for the autonomous parkour. The neccessary packages are: [simulation](#simulation), [perception](#perception), [navigation](#navigation), [controller](#controller), and [quadruped_rviz](#quadruped_rviz).
 * **Launch**  
    Open a new terminal and enter the following command:
@@ -60,7 +66,7 @@ This package launches the neccessary packages for the autonomous parkour. The ne
    roslaunch autonomous_quadruped autonomous_quadruped.launch
    ````
 
-### keyboard_control
+### _keyboard_control_
 This package launches the neccessary packages for the keyboard control of the robot. The neccessary packages are: [simulation](#simulation), [perception](#perception), [teleop_actuators_keyboard](#teleop_actuators_keyboard), and [quadruped_rviz](#quadruped_rviz).
 * **Launch**  
    Open a new terminal and enter the following command:
@@ -68,7 +74,7 @@ This package launches the neccessary packages for the keyboard control of the ro
    roslaunch keyboard_control keyboard_control.launch
    ````
 
-### simulation
+### _simulation_
 Run the unity simulation
 * **Launch**  
    Open a new terminal and enter the following command:
@@ -76,15 +82,15 @@ Run the unity simulation
    roslaunch simulation simulation.launch
    ````
 
-### perception
-Generate point clouds and use them for occupancy grid mapping
+### _perception_
+Generate point clouds and use them for occupancy grid mapping and virtual laser-scan
 * **Launch**  
    Open a new terminal and enter the following command:
    ````
    roslaunch perception perception.launch
    ````
 
-### navigation
+### _navigation_
 Generate cost maps and based on that publish desired velocity values
 * **Launch**  
    Open a new terminal and enter the following command:
@@ -92,7 +98,7 @@ Generate cost maps and based on that publish desired velocity values
    roslaunch navigation move_base.launch
    ````
 
-### controller
+### _controller_
 Listen to the topic /cmd_vel and publish to the topic /commands the according parameters
 * **Launch**  
    Open a new terminal and enter the following command:
@@ -100,7 +106,7 @@ Listen to the topic /cmd_vel and publish to the topic /commands the according pa
    rosrun controller controller
    ````
 
-### quadruped_rviz
+### _quadruped_rviz_
 Store the configuration file for rviz simulation.
 * **Launch**  
    Open a new terminal and enter the following command:
@@ -108,7 +114,7 @@ Store the configuration file for rviz simulation.
    rosrun rviz rviz -d `rospack find quadruped_rviz`/rviz/path_planning.rviz
    ```
 
-### teleop_actuators_keyboard
+### _teleop_actuators_keyboard_
 Keyboard control for the quadruped robot
 * **Launch**  
    Open a new terminal and enter the following command:
