@@ -44,16 +44,18 @@
         name="sim_true_body"      args="0 0 0 0 0 0 /TrueState /true_body" />
 
   <node pkg="tf2_ros" type="static_transform_publisher"
-        name="true_body_to_depth_cam"      args="0 0 0 0 0 -1.744 /true_body RoboDog/base_link/SensorHolder/Sensors/DepthCamera" />
-
-  <node pkg="tf2_ros" type="static_transform_publisher"
-        name="true_body_to_left_cam"      args="0 0 0 0 0 0 /true_body RoboDog/base_link/SensorHolder/Sensors/RGBCameraLeft" />
-
-  <node pkg="tf2_ros" type="static_transform_publisher"
-        name="true_body_to_right_cam"      args="0 0 0 0 0 0 /true_body RoboDog/base_link/SensorHolder/Sensors/RGBCameraRight" />
-
-  <node pkg="tf2_ros" type="static_transform_publisher"
         name="true_body_to_base_link"      args="0 0 0 1.57 0 0  /true_body /base_link" />
  
+  <node pkg="tf2_ros" type="static_transform_publisher"
+        name="base_link_to_depth_cam"      args="0 0 0 -1.57 0 -1.744 /base_link RoboDog/base_link/SensorHolder/Sensors/DepthCamera" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher"
+        name="base_link_to_left_cam"      args="0 0 0 -1.57 0 0 /base_link RoboDog/base_link/SensorHolder/Sensors/RGBCameraLeft" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher"
+        name="base_link_to_right_cam"      args="0 0 0 -1.57 0 0 /base_link RoboDog/base_link/SensorHolder/Sensors/RGBCameraRight" />
+  
+  <node pkg="tf2_ros" type="static_transform_publisher"
+        name="base_link_to_laser_scan"      args="0 0 0 0 0 0 /base_link laser_scan" />
 
 </launch>
