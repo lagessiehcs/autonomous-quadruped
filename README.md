@@ -2,6 +2,7 @@
 The goal of the project is passing a parkour with your robot in minimal time, while not hitting any of the cones.
 
 ## Table of contents 
+* [Demo](#demo)
 * [Prerequisites](#prerequisites)
 * [Dependencies](#dependencies)
   * [depth_image_proc](#depth_image_proc)
@@ -18,6 +19,11 @@ The goal of the project is passing a parkour with your robot in minimal time, wh
   * [quadruped_rviz](#quadruped_rviz)
   * [teleop_actuators_keyboard](#teleop_actuators_keyboard)
 * [Source](#source)
+
+## Demo
+Demonstration of the parkour using [keyboard_control](#keyboard_control) (speed x32)
+
+![demo](https://github.com/user-attachments/assets/04bab5e8-20ae-4608-aee6-a6359362547c)
 
 ## Prerequisites
 This project uses [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) and runs on [Ubuntu 20.04 (Focal)](https://releases.ubuntu.com/focal/)
